@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Issue Migration (GitHub -> Trello)</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/githubExport.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+
+<h1>Issue Migration (GitHub -> Trello)</h1>
+
+<form>
+    <section>
+        <h2>GitHub Export Settings</h2>
+
+        <label>Token</label>
+        <input name="ghToken" placeholder="GitHub token" />
+
+        <label>User</label>
+        <input name="ghUser" placeholder="GitHub user ID" />
+
+        <label>Repo</label>
+        <input name="ghRepo" placeholder="GitHub repository name" />
+    </section>
+
+    <section>
+        <h2>Trello Import Settings</h2>
+
+        <label>App key</label>
+        <input name="trAppkey" placeholder="Trello app key" />
+
+        <label>Token</label>
+        <input name="trToken" placeholder="Trello token" />
+
+        <label>Board name</label>
+        <input name="trBoard" placeholder="Trello board name" />
+
+        <label>List name</label>
+        <input name="trList" placeholder="Trello list name" />
+    </section>
+
+    <input type="submit" />
+</form>
+
+<div class="notes">
+    <h3>Notes:</h3>
+
+    <ol>
+        <li>To get your GitHub token, log into your account and go to Settings -> Personal access tokens.</li>
+        <li><a href="https://trello.com/1/appKey/generate" target="_blank">Get your Trello app key.</a> (You must be logged into you Trello account.)</li>
+        <li>There is a limitation in Trello where comment attribution from another system cannot be carried over.  All comments imported into Trello must be attributed to whomever is logged in (i.e. running this script) at the time.</li>
+    </ol>
+</div>
+
+<script>
+    $('input[type=submit]').click(function(e) { 
+        e.preventDefault();
+        issueMigration.go();
+    });
+</script>
+
+</body>
+</html>
